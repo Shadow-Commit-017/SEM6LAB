@@ -1,1 +1,3 @@
-# SEM6LAB
+# SEMESTER 6 LABORATORY
+
+Laboratory Codes For SL-II(ANN) & SL-III(DS)
