@@ -1,0 +1,35 @@
+import numpy as np
+
+# Step function
+
+def step(x):
+return 1 if x >= 0 else 0
+
+# Take input
+
+num = int(input("Enter a number: "))
+
+# Convert number to binary (6-bit format)
+
+binary = format(num, "06b")   # e.g., 5 → "000101"
+
+# Extract last bit from binary
+
+last_bit = int(binary[-1])
+
+# Input and weight
+
+x = np.array([last_bit])
+w = np.array([-1])
+
+# Perceptron calculation
+
+result = np.dot(x, w)
+output = step(result)
+
+# Output interpretation
+
+if output == 1:
+print(num, "is EVEN")
+else:
+print(num, "is ODD")
