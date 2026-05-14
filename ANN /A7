@@ -1,0 +1,43 @@
+#FP AND BP
+
+import numpy as np
+
+#Sigmoid function
+def sig(x):
+return 1 / (1 + np.exp(-x))
+
+#Derivative of sigmoid
+def dsig(x):
+return x * (1 - x)
+
+#XOR input and output
+inp = np.array([[0,0],[0,1],[1,0],[1,1]])
+out = np.array([[0],[1],[1],[0]])
+
+#Random weights
+np.random.seed(1)
+w1 = np.random.rand(2,2)
+w2 = np.random.rand(2,1)
+lr = 0.
+
+#Training
+for _ in range(10000):
+
+# Forward propagation
+h = sig(np.dot(inp, w1))
+o = sig(np.dot(h, w2))
+
+# Error
+err = out - o
+
+# Backpropagation
+d2 = err * dsig(o)
+d1 = d2.dot(w2.T) * dsig(h)
+
+# Weight update
+w2 += h.T.dot(d2) * lr
+w1 += inp.T.dot(d1) * lr
+
+#Final Output
+print("Output after Training:\n")
+print(np.round(o, 3))
