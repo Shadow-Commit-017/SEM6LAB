@@ -1,0 +1,55 @@
+import numpy as np
+
+
+# Bipolar activation function
+
+
+def sign(v):
+return 1 if v >= 0 else -1
+
+
+# Input and output patterns
+
+
+X = np.array([[1, -1, 1],
+[-1, 1, -1]])
+
+
+Y = np.array([[1, 1],
+[-1, -1]])
+
+
+# Initialize weight matrix
+
+
+W = np.zeros((3, 2))
+
+
+# Training using outer product
+
+
+for i in range(len(X)):
+W += np.outer(X[i], Y[i])
+
+
+print("Weight Matrix:\n", W)
+
+
+# Forward Recall
+
+
+print("\nForward Recall:")
+for i in range(len(X)):
+net = np.dot(X[i], W)
+pred = [sign(v) for v in net]
+print(X[i], "->", pred)
+
+
+# Backward Recall
+
+
+print("\nBackward Recall:")
+for i in range(len(Y)):
+net = np.dot(Y[i], W.T)
+pred = [sign(v) for v in net]
+print(Y[i], "->", pred)
