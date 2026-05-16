@@ -1,3 +1,3 @@
 # SEMESTER 6 LABORATORY
 
-Laboratory Codes For SL-II(ANN) & SL-III(DS)
+SPPU Sementer 6 Laboratory Codes For SL-II(ANN) & SL-III(DS)
